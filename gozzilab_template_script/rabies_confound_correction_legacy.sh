@@ -6,16 +6,16 @@ conf_dir=FD_cut30frames_bandpass0.01-0.1_cut30edges_mot6_CSF_smooth5 # this is o
 docker run -it --rm --user $(id -u) \
 -v ${rabies_in}:/rabies_input:ro \
 -v ${rabies_out}:/rabies_out \
-ghcr.io/cobralab/rabies:master \
+ghcr.io/cobralab/rabies:0.6.0 \
 -f -p MultiProc --local_threads 6 \
 confound_correction /rabies_out /rabies_out/${conf_dir} \
 --frame_censoring FD_censoring=true,FD_threshold=0.05,minimum_timepoint=80 \
 --smoothing_filter 0.5 \
---timeseries_interval 30,end \
+--timeseries_interval 30-end \
 --TR ***your_TR*** --highpass 0.01 --lowpass 0.1 --edge_cutoff 30 \
---conf_list mot_6 CSF_signal
+--nuisance_regressors mot_6 CSF_signal
 
 
-#`--timeseries_interval 30,end`: Here this will cut out the first 30 frames. This can be done to remove the first volumes that suffer from intensity saturation, since the Gozzi lab raw image usually have a couple saturated frames.
+#`--timeseries_interval 30-end`: Here this will cut out the first 30 frames. This can be done to remove the first volumes that suffer from intensity saturation, since the Gozzi lab raw image usually have a couple saturated frames.
 #`--TR ***your_TR*** --highpass 0.01 --lowpass 0.1 --edge_cutoff 30`: this applies a bandpass filter at 0.01-0.1Hz. You need to provide your image TR in seconds. Also `--edge_cutoff 30` removes 30 seconds of data at the beginning and end of the data, since there can be filtering artefacts at the edges.
-#`--conf_list mot_6 CSF_signal`: usually the lab regresses 6 motion parameters (or sometimes 24 instead for awake data), and the mean CSF signal
+#`--nuisance_regressors mot_6 CSF_signal`: usually the lab regresses 6 motion parameters (or sometimes 24 instead for awake data), and the mean CSF signal

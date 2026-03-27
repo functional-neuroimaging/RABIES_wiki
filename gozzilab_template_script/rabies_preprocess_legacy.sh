@@ -5,7 +5,7 @@ mkdir -p $rabies_out
 docker run -it --rm --user $(id -u) \
 -v ${rabies_in}:/rabies_input:ro \
 -v ${rabies_out}:/rabies_out \
-ghcr.io/cobralab/rabies:master \
+ghcr.io/cobralab/rabies:0.6.0 \
 -f -p MultiProc --local_threads 6 \
 preprocess /rabies_input /rabies_out \
 --bold_only \
