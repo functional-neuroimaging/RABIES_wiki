@@ -1,8 +1,6 @@
-# Raw file conversion and BIDS formatting using brkraw
+These are instructions for using brkraw_convert.py, which can convert individual bruker files using a more recent version of the brkraw package.
 
-Here are instructions for converting raw Bruker files into BIDS format using brkraw https://brkraw.github.io/index.html.
-
-## Prepare a python environment
+# Prepare a python environment
 
 ```sh
 conda create -n brkraw
