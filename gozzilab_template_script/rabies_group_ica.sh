@@ -18,3 +18,8 @@ analysis /rabies_out/$conf_dir /rabies_out/$conf_dir/$group_ica_dir \
 # with large or noisy dataset it is possible to go at higher dimensions
 # random_seed=1 makes the algorithm deterministic
 # disableMigp=true will turn off the MIGP method of FSL that reduce computational load for large datasets - it is generally more stable to avoid it, unless you have a very large dataset
+
+# OUTPUTS: 
+# the MELODIC outputs and associated ICA reports are stored in commonspace_analysis_datasink/group_ICA_dir/. 
+# Inside there is melodic_IC.nii.gz which is the 4D nifti file with the ICA components, and there is the 
+# report/ subfolder with FSL's html report, which can be opened by clicking on 00index.html file.
