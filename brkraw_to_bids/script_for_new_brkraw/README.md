@@ -1,3 +1,5 @@
+# DO NOT USE brkraw_convert.py TO CONVERT YOUR DATASET TO BIDS, FOLLOW INSTEAD THE README IN THE UPSTREAM FOLDER. NOW THAT YOU ARE WARNED, BELOW IS HOW TO USE IT ANYWAYS...
+
 These are instructions for using brkraw_convert.py, which can convert individual bruker files using a more recent version of the brkraw package.
 
 # Prepare a python environment
