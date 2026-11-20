@@ -10,8 +10,9 @@ docker run -it --rm --user $(id -u) \
 ghcr.io/cobralab/rabies:latest \
 -f -p MultiProc --local_threads 6 \
 analysis /rabies_out/$conf_dir /rabies_out/$conf_dir \
---data_diagnosis \
+--data_diagnosis --group_avg_prior \
 --seed_list SS_frontal_seed ACA_seed
 
 #* `--data_diagnosis`: this will generate a series of visual report that support quality assessment for functional connectivity analysis. The content of those reports are extensively documented elsewhere https://rabies.readthedocs.io/en/latest/analysis_QC.html.
+#* `--group_avg_prior`: this parameter must be activated to generate the QC reports with --seed_list, unless you explicitely provide a list of pre-computed network map for each seed using --seed_prior_list
 #* `--seed_list SS_frontal_seed ACA_seed`: This parameter handles the computation of seed-based connectivity (using pearson correlation). Here we are using 2 pre-built seeds `SS_frontal_seed` and `ACA_seed`, which correspond to the somatomotor area and anterior cingulate cortex.
