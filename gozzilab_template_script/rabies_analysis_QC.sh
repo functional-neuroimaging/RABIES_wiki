@@ -7,7 +7,7 @@ docker run -it --rm --user $(id -u) \
 -v ${rabies_in}:/rabies_input:ro \
 -v ${rabies_out}:/rabies_out \
 -v /home/gdesrosiersgregoire/atlases:/atlases \
-ghcr.io/cobralab/rabies:0.6.0 \
+ghcr.io/cobralab/rabies:latest \
 -f -p MultiProc --local_threads 6 \
 analysis /rabies_out/$conf_dir /rabies_out/$conf_dir \
 --data_diagnosis \
